@@ -1,0 +1,56 @@
+{
+  "applications": "*",
+  "changelogDate": "20230225080410",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "employee_leave_account",
+  "fields": [
+    {
+      "fieldName": "leaveTypeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "employeeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "carriedLeaves",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditedLeaves",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "balance",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "EmployeeLeaveAccount",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

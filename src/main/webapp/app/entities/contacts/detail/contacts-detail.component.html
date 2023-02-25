@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contacts">
+      <h2 data-cy="contactsDetailsHeading"><span jhiTranslate="shrmsApp.contacts.detail.title">Contacts</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contacts.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.name">Name</span></dt>
+        <dd>
+          <span>{{ contacts.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.contactPref">Contact Pref</span></dt>
+        <dd>
+          <span>{{ contacts.contactPref }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.contactType">Contact Type</span></dt>
+        <dd>
+          <span>{{ contacts.contactType }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.contact">Contact</span></dt>
+        <dd>
+          <span>{{ contacts.contact }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.refTable">Ref Table</span></dt>
+        <dd>
+          <span>{{ contacts.refTable }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.refTableId">Ref Table Id</span></dt>
+        <dd>
+          <span>{{ contacts.refTableId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ contacts.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.status">Status</span></dt>
+        <dd>
+          <span>{{ contacts.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ contacts.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ contacts.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.contactReference">Contact Reference</span></dt>
+        <dd>
+          <span>{{ contacts.contactReference }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contacts', contacts.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

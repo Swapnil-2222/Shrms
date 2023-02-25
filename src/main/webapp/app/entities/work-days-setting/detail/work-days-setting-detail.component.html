@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="workDaysSetting">
+      <h2 data-cy="workDaysSettingDetailsHeading"><span jhiTranslate="shrmsApp.workDaysSetting.detail.title">Work Days Setting</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.day">Day</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.day }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.hours">Hours</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.hours }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.dayOff">Day Off</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.dayOff }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.status">Status</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workDaysSetting.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ workDaysSetting.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/work-days-setting', workDaysSetting.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

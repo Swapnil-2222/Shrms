@@ -1,0 +1,33 @@
+{
+  "shrmsApp": {
+    "employeeLeaveAccount": {
+      "home": {
+        "title": "Employee Leave Accounts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Employee Leave Account",
+        "createOrEditLabel": "Create or edit a Employee Leave Account",
+        "notFound": "No Employee Leave Accounts found"
+      },
+      "created": "A new Employee Leave Account is created with identifier {{ param }}",
+      "updated": "A Employee Leave Account is updated with identifier {{ param }}",
+      "deleted": "A Employee Leave Account is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employee Leave Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Leave Account"
+      },
+      "id": "ID",
+      "leaveTypeId": "Leave Type Id",
+      "employeeId": "Employee Id",
+      "carriedLeaves": "Carried Leaves",
+      "creditedLeaves": "Credited Leaves",
+      "date": "Date",
+      "balance": "Balance",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

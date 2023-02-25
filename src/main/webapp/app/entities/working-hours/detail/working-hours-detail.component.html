@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="workingHours">
+      <h2 data-cy="workingHoursDetailsHeading"><span jhiTranslate="shrmsApp.workingHours.detail.title">Working Hours</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ workingHours.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workingHours.noOfHours">No Of Hours</span></dt>
+        <dd>
+          <span>{{ workingHours.noOfHours }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workingHours.employmentTypeId">Employment Type Id</span></dt>
+        <dd>
+          <span>{{ workingHours.employmentTypeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workingHours.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ workingHours.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workingHours.status">Status</span></dt>
+        <dd>
+          <span>{{ workingHours.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workingHours.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ workingHours.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workingHours.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ workingHours.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/working-hours', workingHours.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

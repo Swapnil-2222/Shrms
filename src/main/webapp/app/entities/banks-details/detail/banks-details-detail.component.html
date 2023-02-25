@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="banksDetails">
+      <h2 data-cy="banksDetailsDetailsHeading"><span jhiTranslate="shrmsApp.banksDetails.detail.title">Banks Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ banksDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.accountNumber">Account Number</span></dt>
+        <dd>
+          <span>{{ banksDetails.accountNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.bankName">Bank Name</span></dt>
+        <dd>
+          <span>{{ banksDetails.bankName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.branchTransCode">Branch Trans Code</span></dt>
+        <dd>
+          <span>{{ banksDetails.branchTransCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.taxNumber">Tax Number</span></dt>
+        <dd>
+          <span>{{ banksDetails.taxNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.gstin">Gstin</span></dt>
+        <dd>
+          <span>{{ banksDetails.gstin }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.tan">Tan</span></dt>
+        <dd>
+          <span>{{ banksDetails.tan }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.branchName">Branch Name</span></dt>
+        <dd>
+          <span>{{ banksDetails.branchName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.refTable">Ref Table</span></dt>
+        <dd>
+          <span>{{ banksDetails.refTable }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.refTableId">Ref Table Id</span></dt>
+        <dd>
+          <span>{{ banksDetails.refTableId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ banksDetails.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.status">Status</span></dt>
+        <dd>
+          <span>{{ banksDetails.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ banksDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ banksDetails.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/banks-details', banksDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

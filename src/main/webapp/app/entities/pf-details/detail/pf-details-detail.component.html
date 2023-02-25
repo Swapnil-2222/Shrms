@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pfDetails">
+      <h2 data-cy="pfDetailsDetailsHeading"><span jhiTranslate="shrmsApp.pfDetails.detail.title">Pf Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ pfDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.isPfContribution">Is Pf Contribution</span></dt>
+        <dd>
+          <span>{{ pfDetails.isPfContribution }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.pfNumber">Pf Number</span></dt>
+        <dd>
+          <span>{{ pfDetails.pfNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.pfRate">Pf Rate</span></dt>
+        <dd>
+          <span>{{ pfDetails.pfRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.additionalPfRate">Additional Pf Rate</span></dt>
+        <dd>
+          <span>{{ pfDetails.additionalPfRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.totalPfRate">Total Pf Rate</span></dt>
+        <dd>
+          <span>{{ pfDetails.totalPfRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.employeId">Employe Id</span></dt>
+        <dd>
+          <span>{{ pfDetails.employeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.reEnumerationId">Re Enumeration Id</span></dt>
+        <dd>
+          <span>{{ pfDetails.reEnumerationId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ pfDetails.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.status">Status</span></dt>
+        <dd>
+          <span>{{ pfDetails.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ pfDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.pfDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ pfDetails.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pf-details', pfDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

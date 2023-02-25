@@ -1,0 +1,185 @@
+package com.techvg.shrms.domain;
+
+import java.io.Serializable;
+import java.time.Instant;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+/**
+ * A CustomLeavePolicy.
+ */
+@Entity
+@Table(name = "custom_leave_policy")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@SuppressWarnings("common-java:DuplicatedBlocks")
+public class CustomLeavePolicy implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "leave_policy_id")
+    private Long leavePolicyId;
+
+    @Column(name = "employee_id")
+    private Long employeeId;
+
+    @Column(name = "days")
+    private Long days;
+
+    @Column(name = "company_id")
+    private Long companyId;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "last_modified")
+    private Instant lastModified;
+
+    @Column(name = "last_modified_by")
+    private String lastModifiedBy;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public CustomLeavePolicy id(Long id) {
+        this.setId(id);
+        return this;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getLeavePolicyId() {
+        return this.leavePolicyId;
+    }
+
+    public CustomLeavePolicy leavePolicyId(Long leavePolicyId) {
+        this.setLeavePolicyId(leavePolicyId);
+        return this;
+    }
+
+    public void setLeavePolicyId(Long leavePolicyId) {
+        this.leavePolicyId = leavePolicyId;
+    }
+
+    public Long getEmployeeId() {
+        return this.employeeId;
+    }
+
+    public CustomLeavePolicy employeeId(Long employeeId) {
+        this.setEmployeeId(employeeId);
+        return this;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public Long getDays() {
+        return this.days;
+    }
+
+    public CustomLeavePolicy days(Long days) {
+        this.setDays(days);
+        return this;
+    }
+
+    public void setDays(Long days) {
+        this.days = days;
+    }
+
+    public Long getCompanyId() {
+        return this.companyId;
+    }
+
+    public CustomLeavePolicy companyId(Long companyId) {
+        this.setCompanyId(companyId);
+        return this;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public CustomLeavePolicy status(String status) {
+        this.setStatus(status);
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Instant getLastModified() {
+        return this.lastModified;
+    }
+
+    public CustomLeavePolicy lastModified(Instant lastModified) {
+        this.setLastModified(lastModified);
+        return this;
+    }
+
+    public void setLastModified(Instant lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public String getLastModifiedBy() {
+        return this.lastModifiedBy;
+    }
+
+    public CustomLeavePolicy lastModifiedBy(String lastModifiedBy) {
+        this.setLastModifiedBy(lastModifiedBy);
+        return this;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CustomLeavePolicy)) {
+            return false;
+        }
+        return id != null && id.equals(((CustomLeavePolicy) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+        return getClass().hashCode();
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+        return "CustomLeavePolicy{" +
+            "id=" + getId() +
+            ", leavePolicyId=" + getLeavePolicyId() +
+            ", employeeId=" + getEmployeeId() +
+            ", days=" + getDays() +
+            ", companyId=" + getCompanyId() +
+            ", status='" + getStatus() + "'" +
+            ", lastModified='" + getLastModified() + "'" +
+            ", lastModifiedBy='" + getLastModifiedBy() + "'" +
+            "}";
+    }
+}

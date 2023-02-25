@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="company">
+      <h2 data-cy="companyDetailsHeading"><span jhiTranslate="shrmsApp.company.detail.title">Company</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ company.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.companyName">Company Name</span></dt>
+        <dd>
+          <span>{{ company.companyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.contactPerson">Contact Person</span></dt>
+        <dd>
+          <span>{{ company.contactPerson }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ company.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.email">Email</span></dt>
+        <dd>
+          <span>{{ company.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ company.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.mobileNumber">Mobile Number</span></dt>
+        <dd>
+          <span>{{ company.mobileNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.websiteUrl">Website Url</span></dt>
+        <dd>
+          <span>{{ company.websiteUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.fax">Fax</span></dt>
+        <dd>
+          <span>{{ company.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.regNumber">Reg Number</span></dt>
+        <dd>
+          <span>{{ company.regNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.status">Status</span></dt>
+        <dd>
+          <span>{{ company.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ company.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.company.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ company.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/company', company.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

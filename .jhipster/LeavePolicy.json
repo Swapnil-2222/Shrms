@@ -1,0 +1,64 @@
+{
+  "applications": "*",
+  "changelogDate": "20230225080401",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "leave_policy",
+  "fields": [
+    {
+      "fieldName": "leaveType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isCarryForword",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "employeeType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "genderLeave",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalLeave",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxLeave",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hasproRataLeave",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LeavePolicy",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

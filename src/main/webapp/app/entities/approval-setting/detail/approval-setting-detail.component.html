@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="approvalSetting">
+      <h2 data-cy="approvalSettingDetailsHeading"><span jhiTranslate="shrmsApp.approvalSetting.detail.title">Approval Setting</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ approvalSetting.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.approvalSetting.type">Type</span></dt>
+        <dd>
+          <span>{{ approvalSetting.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.approvalSetting.approvalCategory">Approval Category</span></dt>
+        <dd>
+          <span>{{ approvalSetting.approvalCategory }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.approvalSetting.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ approvalSetting.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.approvalSetting.status">Status</span></dt>
+        <dd>
+          <span>{{ approvalSetting.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.approvalSetting.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ approvalSetting.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.approvalSetting.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ approvalSetting.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/approval-setting', approvalSetting.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

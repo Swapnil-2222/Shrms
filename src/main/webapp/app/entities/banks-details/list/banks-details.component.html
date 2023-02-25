@@ -1,0 +1,192 @@
+<div>
+  <h2 id="page-heading" data-cy="BanksDetailsHeading">
+    <span jhiTranslate="shrmsApp.banksDetails.home.title">Banks Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shrmsApp.banksDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-banks-details"
+        [routerLink]="['/banks-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shrmsApp.banksDetails.home.createLabel"> Create a new Banks Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="banksDetails?.length === 0">
+    <span jhiTranslate="shrmsApp.banksDetails.home.notFound">No Banks Details found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="banksDetails && banksDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="accountNumber">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.accountNumber">Account Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bankName">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.bankName">Bank Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branchTransCode">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.branchTransCode">Branch Trans Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="taxNumber">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.taxNumber">Tax Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gstin">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.gstin">Gstin</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tan">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.tan">Tan</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branchName">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.branchName">Branch Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="refTable">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.refTable">Ref Table</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="refTableId">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.refTableId">Ref Table Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="companyId">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.companyId">Company Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.banksDetails.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let banksDetails of banksDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/banks-details', banksDetails.id, 'view']">{{ banksDetails.id }}</a>
+          </td>
+          <td>{{ banksDetails.accountNumber }}</td>
+          <td>{{ banksDetails.bankName }}</td>
+          <td>{{ banksDetails.branchTransCode }}</td>
+          <td>{{ banksDetails.taxNumber }}</td>
+          <td>{{ banksDetails.gstin }}</td>
+          <td>{{ banksDetails.tan }}</td>
+          <td>{{ banksDetails.branchName }}</td>
+          <td>{{ banksDetails.refTable }}</td>
+          <td>{{ banksDetails.refTableId }}</td>
+          <td>{{ banksDetails.companyId }}</td>
+          <td>{{ banksDetails.status }}</td>
+          <td>{{ banksDetails.lastModified | formatMediumDatetime }}</td>
+          <td>{{ banksDetails.lastModifiedBy }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/banks-details', banksDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/banks-details', banksDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(banksDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="banksDetails && banksDetails.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
