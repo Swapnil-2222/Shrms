@@ -1,0 +1,31 @@
+{
+  "shrmsApp": {
+    "salarySettings": {
+      "home": {
+        "title": "Salary Settings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Salary Settings",
+        "createOrEditLabel": "Create or edit a Salary Settings",
+        "notFound": "No Salary Settings found"
+      },
+      "created": "A new Salary Settings is created with identifier {{ param }}",
+      "updated": "A Salary Settings is updated with identifier {{ param }}",
+      "deleted": "A Salary Settings is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Salary Settings {{ id }}?"
+      },
+      "detail": {
+        "title": "Salary Settings"
+      },
+      "id": "ID",
+      "da": "Da",
+      "hra": "Hra",
+      "employeeShare": "Employee Share",
+      "companyShare": "Company Share",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

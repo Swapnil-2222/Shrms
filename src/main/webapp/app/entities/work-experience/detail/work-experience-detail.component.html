@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="workExperience">
+      <h2 data-cy="workExperienceDetailsHeading"><span jhiTranslate="shrmsApp.workExperience.detail.title">Work Experience</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ workExperience.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.jobTitle">Job Title</span></dt>
+        <dd>
+          <span>{{ workExperience.jobTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.companyName">Company Name</span></dt>
+        <dd>
+          <span>{{ workExperience.companyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ workExperience.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ workExperience.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.addressId">Address Id</span></dt>
+        <dd>
+          <span>{{ workExperience.addressId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ workExperience.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ workExperience.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.jobDesc">Job Desc</span></dt>
+        <dd>
+          <span>{{ workExperience.jobDesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.status">Status</span></dt>
+        <dd>
+          <span>{{ workExperience.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ workExperience.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.workExperience.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ workExperience.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/work-experience', workExperience.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

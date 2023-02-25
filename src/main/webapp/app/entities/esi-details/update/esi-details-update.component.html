@@ -1,0 +1,138 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-esi-details-heading" data-cy="EsiDetailsCreateUpdateHeading" jhiTranslate="shrmsApp.esiDetails.home.createOrEditLabel">
+        Create or edit a Esi Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.isEsiContribution" for="field_isEsiContribution"
+            >Is Esi Contribution</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isEsiContribution"
+            id="field_isEsiContribution"
+            data-cy="isEsiContribution"
+            formControlName="isEsiContribution"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.esiNumber" for="field_esiNumber">Esi Number</label>
+          <input type="text" class="form-control" name="esiNumber" id="field_esiNumber" data-cy="esiNumber" formControlName="esiNumber" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.esiRate" for="field_esiRate">Esi Rate</label>
+          <input type="number" class="form-control" name="esiRate" id="field_esiRate" data-cy="esiRate" formControlName="esiRate" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.additionalEsiRate" for="field_additionalEsiRate"
+            >Additional Esi Rate</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="additionalEsiRate"
+            id="field_additionalEsiRate"
+            data-cy="additionalEsiRate"
+            formControlName="additionalEsiRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.totalEsiRate" for="field_totalEsiRate">Total Esi Rate</label>
+          <input
+            type="number"
+            class="form-control"
+            name="totalEsiRate"
+            id="field_totalEsiRate"
+            data-cy="totalEsiRate"
+            formControlName="totalEsiRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.employeId" for="field_employeId">Employe Id</label>
+          <input type="number" class="form-control" name="employeId" id="field_employeId" data-cy="employeId" formControlName="employeId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.reEnumerationId" for="field_reEnumerationId">Re Enumeration Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="reEnumerationId"
+            id="field_reEnumerationId"
+            data-cy="reEnumerationId"
+            formControlName="reEnumerationId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.companyId" for="field_companyId">Company Id</label>
+          <input type="number" class="form-control" name="companyId" id="field_companyId" data-cy="companyId" formControlName="companyId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.esiDetails.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

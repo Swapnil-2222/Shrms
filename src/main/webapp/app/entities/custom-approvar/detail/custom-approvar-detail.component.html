@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="customApprovar">
+      <h2 data-cy="customApprovarDetailsHeading"><span jhiTranslate="shrmsApp.customApprovar.detail.title">Custom Approvar</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ customApprovar.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.employeId">Employe Id</span></dt>
+        <dd>
+          <span>{{ customApprovar.employeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.approvalSettingId">Approval Setting Id</span></dt>
+        <dd>
+          <span>{{ customApprovar.approvalSettingId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.squence">Squence</span></dt>
+        <dd>
+          <span>{{ customApprovar.squence }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ customApprovar.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.status">Status</span></dt>
+        <dd>
+          <span>{{ customApprovar.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ customApprovar.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customApprovar.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ customApprovar.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/custom-approvar', customApprovar.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

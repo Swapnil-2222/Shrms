@@ -1,0 +1,34 @@
+{
+  "shrmsApp": {
+    "pfDetails": {
+      "home": {
+        "title": "Pf Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Pf Details",
+        "createOrEditLabel": "Create or edit a Pf Details",
+        "notFound": "No Pf Details found"
+      },
+      "created": "A new Pf Details is created with identifier {{ param }}",
+      "updated": "A Pf Details is updated with identifier {{ param }}",
+      "deleted": "A Pf Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pf Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Pf Details"
+      },
+      "id": "ID",
+      "isPfContribution": "Is Pf Contribution",
+      "pfNumber": "Pf Number",
+      "pfRate": "Pf Rate",
+      "additionalPfRate": "Additional Pf Rate",
+      "totalPfRate": "Total Pf Rate",
+      "employeId": "Employe Id",
+      "reEnumerationId": "Re Enumeration Id",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="esiDetails">
+      <h2 data-cy="esiDetailsDetailsHeading"><span jhiTranslate="shrmsApp.esiDetails.detail.title">Esi Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ esiDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.isEsiContribution">Is Esi Contribution</span></dt>
+        <dd>
+          <span>{{ esiDetails.isEsiContribution }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.esiNumber">Esi Number</span></dt>
+        <dd>
+          <span>{{ esiDetails.esiNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.esiRate">Esi Rate</span></dt>
+        <dd>
+          <span>{{ esiDetails.esiRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.additionalEsiRate">Additional Esi Rate</span></dt>
+        <dd>
+          <span>{{ esiDetails.additionalEsiRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.totalEsiRate">Total Esi Rate</span></dt>
+        <dd>
+          <span>{{ esiDetails.totalEsiRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.employeId">Employe Id</span></dt>
+        <dd>
+          <span>{{ esiDetails.employeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.reEnumerationId">Re Enumeration Id</span></dt>
+        <dd>
+          <span>{{ esiDetails.reEnumerationId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ esiDetails.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.status">Status</span></dt>
+        <dd>
+          <span>{{ esiDetails.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ esiDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.esiDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ esiDetails.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/esi-details', esiDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,459 @@
+entity MasterLookup{
+    name String
+    value String
+	valueTwo String
+    description String
+    type String  //MasterLookup name
+    companyId Long  
+	status String
+    lastModified Instant 
+    lastModifiedBy String    
+}
+
+entity FormValidator{
+    type String // required or pattern from //MasterLookup value
+    value String
+    formName String 
+    fieldName String
+    companyId Long
+	status String
+    lastModified Instant 
+    lastModifiedBy String  
+}
+
+entity Employee {
+    firstName String
+   middleName String
+    lastName String
+    department String //MasterLookup value
+    designation String //MasterLookup value
+    gender String
+    empUniqueId String required   // need to be unique but company wise so we can handle it throght the code
+    joindate Instant
+    companyId Long   
+    branchId Long
+    regionId Long
+	status String
+    lastModified Instant 
+    lastModifiedBy String 
+ // new fields needs to add 
+employmentTypeId Long 
+}
+
+entity Reporting{
+    employeeId Long
+    reportingEmpId Long    
+    reportingId Long
+    companyId Long
+	status String
+    lastModified Instant 
+    lastModifiedBy String
+}
+
+entity PersonalDetails {
+    telephoneNo String
+    nationality String		//MasterLookup value
+    maritalStatus String //MasterLookup value
+    religion String
+    employeeId Long  
+    companyId Long
+//below feilds are considered as per Lokmanya and common details  
+    bloodGroup String
+    dateOfBirth LocalDate 
+	status String
+    lastModified Instant 
+    lastModifiedBy String  
+}
+
+entity PersonalId{
+	type String //passport or aadhar driving lic MasterLookup value
+	number String 	
+	issueDate Instant
+	expDate Instant
+	issuingAuthority String
+	docUrl String
+	employeeId Long  
+    companyId Long
+	status String
+    lastModified Instant 
+    lastModifiedBy String  
+	
+}
+
+entity FamilyInfo {
+    name String
+    dateOfBirth LocalDate  
+    relation String //MasterLookup value
+    addressId Long
+	isEmployed Boolean
+	employedAt String
+    employeeId Long
+    companyId Long
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity Address {
+    type String
+    line1 String
+    line2 String
+    country String 
+    state  String
+    city String
+    pincode String 
+    defaultAdd Boolean
+    landMark String
+    longitude Double
+    latitude Double
+    refTable String
+    refTableId Long
+    companyId Long  
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+
+entity Contacts {
+    name String 
+    contactPref String // primary or secondary //MasterLookup value
+    contactType String // mobile or landline  or email //MasterLookup value
+    contact String
+    refTable String
+    refTableId Long
+    companyId Long
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+// new Added feilds
+  contactReference String
+}
+
+entity BanksDetails {
+    accountNumber Long
+    bankName String
+    branchTransCode String 
+    taxNumber String
+	gstin String
+    tan String 
+    branchName String  
+    refTable String
+    refTableId Long
+    companyId Long
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity Education {
+    institution String
+    subject String
+    startYear Instant
+    endDate Instant
+    educationType String //MasterLookup value
+    grade String
+    description String 
+    employeeId Long
+    companyId Long
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity WorkExperience {
+    jobTitle String
+    companyName String
+    startDate Instant
+    endDate Instant
+    addressId Long
+    employeeId Long
+    companyId Long
+    jobDesc String
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity Remuneration {  
+    salaryType String //MasterLookup name
+    amount Double
+    paymentType String  //  payment type are fixed bank, cheque and cash //MasterLookup name
+    employeId Long
+    companyId Long
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity PfDetails{  
+    isPfContribution Boolean
+    pfNumber String
+    pfRate Double
+    additionalPfRate String //MasterLookup value
+    totalPfRate Double 
+    employeId Long
+    reEnumerationId Long
+    companyId Long 
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity EsiDetails{  
+    isEsiContribution Boolean
+    esiNumber String
+    esiRate Double
+    additionalEsiRate String //MasterLookup value
+    totalEsiRate Double    
+    employeId Long
+    reEnumerationId Long
+    companyId Long 
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity LeaveApplication {
+    leaveType String
+    balanceLeave Long
+    noOfDays Long
+    reason String
+    year Long
+    formDate Instant
+    toDate Instant
+    leaveStatus String
+    status String
+   	employeId Long
+    companyId Long 
+	status String
+	lastModified Instant 
+    lastModifiedBy String 
+}
+
+//-------Tables related to the master data----
+entity Company{
+    companyName String
+    contactPerson String
+    postalCode String
+    email String
+    phoneNumber String
+    mobileNumber String
+    websiteUrl String
+    fax String 
+ // below feilds are considered as per Lokmanya and common details 
+    regNumber String
+	status String
+    lastModified Instant 
+    lastModifiedBy String
+}
+
+entity Region{
+    regionName String required unique
+    description String  
+    regionId Long
+    companyId Long 
+	status String
+    lastModified Instant 
+    lastModifiedBy String
+}
+
+entity Branch{
+    branchName String required unique
+    description String 
+    branchcode String unique
+    branchType String    // HeadOffice, branch and zonal office //MasterLookup Name
+    webSite String 
+    branchId Long
+    regionId Long
+    companyId Long 
+	status String
+    lastModified Instant 
+    lastModifiedBy String
+}
+
+entity State {   
+    stateName String required unique
+    lgdCode Long
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity SalarySettings{ // needs to discuss
+    da Double
+    hra Double
+    employeeShare Double
+    companyShare Double
+    companyId Long 	
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity Tds{
+    salaryFrom Instant
+    salaryTo Instant
+    percentage Double
+    salarySettingId Long
+    companyId Long
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity Department{
+    name String
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity Designation{
+    name String
+    departmentId Long
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity LeaveType{  
+    leaveType String 
+    noOfDays String
+	companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+ // new Added feilds
+   hasCarryForward Boolean
+   hasEarned Boolean
+   hasCustomPolicy Boolean
+
+}
+
+entity LeavePolicy {
+    leaveType String // needs to change it as leaveTypeId for relation
+    isCarryForword Boolean
+    employeeType String
+    genderLeave String
+    totalLeave String
+    maxLeave String
+    hasproRataLeave Boolean
+    description String
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+} 
+
+entity CustomLeavePolicy{
+	leavePolicyId Long,
+    employeeId Long,
+    days Long
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+
+entity Holiday{
+    holidayName String
+    holidayDate Instant
+    day String 
+    year Instant
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity WorkDaysSetting{
+    day String
+    hours String
+    dayOff Boolean
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String
+}
+
+entity ApprovalSetting{
+    type String    //Master_lookup: expenses,leave,employee onboarding,resignation
+    approvalCategory Integer//(0,1)SequenceApproval/SimultaneousApproval
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity ApprovalLevel{
+	name String   //Master_lookup
+	squence Long  
+	approvalSettingId Long
+    companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+
+entity CustomApprovar {
+    employeId Long
+    approvalSettingId String
+    squence String
+    companyId Long
+    status String
+    lastModified Instant
+    lastModifiedBy String
+}
+
+// New tables needs to add
+
+entity EmploymentType {
+    name String
+    subtype String // needs to discuss 
+    companyId Long
+    status String
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity WorkingHours{
+  noOfHours String 
+  employmentTypeId Long
+  companyId Long 
+  status String
+  lastModified Instant 
+  lastModifiedBy String 
+}
+
+entity EmployeeLeaveAccount{
+      leaveTypeId Long,
+	employeeId Long,
+	carriedLeaves String,
+	creditedLeaves String,
+	date Instant,
+	Balance String
+	companyId Long 
+    status String
+    lastModified Instant 
+    lastModifiedBy String 
+}
+  
+
+    
+  // Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg

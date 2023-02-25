@@ -1,0 +1,31 @@
+{
+  "shrmsApp": {
+    "tds": {
+      "home": {
+        "title": "Tds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tds",
+        "createOrEditLabel": "Create or edit a Tds",
+        "notFound": "No Tds found"
+      },
+      "created": "A new Tds is created with identifier {{ param }}",
+      "updated": "A Tds is updated with identifier {{ param }}",
+      "deleted": "A Tds is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tds {{ id }}?"
+      },
+      "detail": {
+        "title": "Tds"
+      },
+      "id": "ID",
+      "salaryFrom": "Salary From",
+      "salaryTo": "Salary To",
+      "percentage": "Percentage",
+      "salarySettingId": "Salary Setting Id",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

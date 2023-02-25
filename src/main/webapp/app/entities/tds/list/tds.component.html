@@ -1,0 +1,147 @@
+<div>
+  <h2 id="page-heading" data-cy="TdsHeading">
+    <span jhiTranslate="shrmsApp.tds.home.title">Tds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shrmsApp.tds.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tds"
+        [routerLink]="['/tds/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shrmsApp.tds.home.createLabel"> Create a new Tds </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tds?.length === 0">
+    <span jhiTranslate="shrmsApp.tds.home.notFound">No Tds found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="tds && tds.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="salaryFrom">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.salaryFrom">Salary From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="salaryTo">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.salaryTo">Salary To</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="percentage">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.percentage">Percentage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="salarySettingId">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.salarySettingId">Salary Setting Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="companyId">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.companyId">Company Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.tds.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tds of tds; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tds', tds.id, 'view']">{{ tds.id }}</a>
+          </td>
+          <td>{{ tds.salaryFrom | formatMediumDatetime }}</td>
+          <td>{{ tds.salaryTo | formatMediumDatetime }}</td>
+          <td>{{ tds.percentage }}</td>
+          <td>{{ tds.salarySettingId }}</td>
+          <td>{{ tds.companyId }}</td>
+          <td>{{ tds.status }}</td>
+          <td>{{ tds.lastModified | formatMediumDatetime }}</td>
+          <td>{{ tds.lastModifiedBy }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/tds', tds.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/tds', tds.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tds)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="tds && tds.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

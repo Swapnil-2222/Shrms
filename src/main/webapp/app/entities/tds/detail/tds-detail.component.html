@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tds">
+      <h2 data-cy="tdsDetailsHeading"><span jhiTranslate="shrmsApp.tds.detail.title">Tds</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tds.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.salaryFrom">Salary From</span></dt>
+        <dd>
+          <span>{{ tds.salaryFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.salaryTo">Salary To</span></dt>
+        <dd>
+          <span>{{ tds.salaryTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.percentage">Percentage</span></dt>
+        <dd>
+          <span>{{ tds.percentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.salarySettingId">Salary Setting Id</span></dt>
+        <dd>
+          <span>{{ tds.salarySettingId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ tds.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.status">Status</span></dt>
+        <dd>
+          <span>{{ tds.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ tds.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.tds.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ tds.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tds', tds.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

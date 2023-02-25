@@ -1,0 +1,29 @@
+{
+  "shrmsApp": {
+    "approvalSetting": {
+      "home": {
+        "title": "Approval Settings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Approval Setting",
+        "createOrEditLabel": "Create or edit a Approval Setting",
+        "notFound": "No Approval Settings found"
+      },
+      "created": "A new Approval Setting is created with identifier {{ param }}",
+      "updated": "A Approval Setting is updated with identifier {{ param }}",
+      "deleted": "A Approval Setting is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Approval Setting {{ id }}?"
+      },
+      "detail": {
+        "title": "Approval Setting"
+      },
+      "id": "ID",
+      "type": "Type",
+      "approvalCategory": "Approval Category",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

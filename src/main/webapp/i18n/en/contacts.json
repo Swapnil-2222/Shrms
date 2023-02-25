@@ -1,0 +1,34 @@
+{
+  "shrmsApp": {
+    "contacts": {
+      "home": {
+        "title": "Contacts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Contacts",
+        "createOrEditLabel": "Create or edit a Contacts",
+        "notFound": "No Contacts found"
+      },
+      "created": "A new Contacts is created with identifier {{ param }}",
+      "updated": "A Contacts is updated with identifier {{ param }}",
+      "deleted": "A Contacts is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contacts {{ id }}?"
+      },
+      "detail": {
+        "title": "Contacts"
+      },
+      "id": "ID",
+      "name": "Name",
+      "contactPref": "Contact Pref",
+      "contactType": "Contact Type",
+      "contact": "Contact",
+      "refTable": "Ref Table",
+      "refTableId": "Ref Table Id",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "contactReference": "Contact Reference"
+    }
+  }
+}

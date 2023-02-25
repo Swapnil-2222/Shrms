@@ -1,0 +1,34 @@
+{
+  "shrmsApp": {
+    "esiDetails": {
+      "home": {
+        "title": "Esi Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Esi Details",
+        "createOrEditLabel": "Create or edit a Esi Details",
+        "notFound": "No Esi Details found"
+      },
+      "created": "A new Esi Details is created with identifier {{ param }}",
+      "updated": "A Esi Details is updated with identifier {{ param }}",
+      "deleted": "A Esi Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Esi Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Esi Details"
+      },
+      "id": "ID",
+      "isEsiContribution": "Is Esi Contribution",
+      "esiNumber": "Esi Number",
+      "esiRate": "Esi Rate",
+      "additionalEsiRate": "Additional Esi Rate",
+      "totalEsiRate": "Total Esi Rate",
+      "employeId": "Employe Id",
+      "reEnumerationId": "Re Enumeration Id",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

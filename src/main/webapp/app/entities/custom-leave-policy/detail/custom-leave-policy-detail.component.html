@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="customLeavePolicy">
+      <h2 data-cy="customLeavePolicyDetailsHeading">
+        <span jhiTranslate="shrmsApp.customLeavePolicy.detail.title">Custom Leave Policy</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.leavePolicyId">Leave Policy Id</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.leavePolicyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.days">Days</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.days }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.status">Status</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.customLeavePolicy.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ customLeavePolicy.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/custom-leave-policy', customLeavePolicy.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

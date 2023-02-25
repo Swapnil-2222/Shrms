@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="salarySettings">
+      <h2 data-cy="salarySettingsDetailsHeading"><span jhiTranslate="shrmsApp.salarySettings.detail.title">Salary Settings</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ salarySettings.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.da">Da</span></dt>
+        <dd>
+          <span>{{ salarySettings.da }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.hra">Hra</span></dt>
+        <dd>
+          <span>{{ salarySettings.hra }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.employeeShare">Employee Share</span></dt>
+        <dd>
+          <span>{{ salarySettings.employeeShare }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.companyShare">Company Share</span></dt>
+        <dd>
+          <span>{{ salarySettings.companyShare }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ salarySettings.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.status">Status</span></dt>
+        <dd>
+          <span>{{ salarySettings.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ salarySettings.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.salarySettings.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ salarySettings.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/salary-settings', salarySettings.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

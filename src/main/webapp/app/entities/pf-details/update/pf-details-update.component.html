@@ -1,0 +1,138 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-pf-details-heading" data-cy="PfDetailsCreateUpdateHeading" jhiTranslate="shrmsApp.pfDetails.home.createOrEditLabel">
+        Create or edit a Pf Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.isPfContribution" for="field_isPfContribution"
+            >Is Pf Contribution</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isPfContribution"
+            id="field_isPfContribution"
+            data-cy="isPfContribution"
+            formControlName="isPfContribution"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.pfNumber" for="field_pfNumber">Pf Number</label>
+          <input type="text" class="form-control" name="pfNumber" id="field_pfNumber" data-cy="pfNumber" formControlName="pfNumber" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.pfRate" for="field_pfRate">Pf Rate</label>
+          <input type="number" class="form-control" name="pfRate" id="field_pfRate" data-cy="pfRate" formControlName="pfRate" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.additionalPfRate" for="field_additionalPfRate"
+            >Additional Pf Rate</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="additionalPfRate"
+            id="field_additionalPfRate"
+            data-cy="additionalPfRate"
+            formControlName="additionalPfRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.totalPfRate" for="field_totalPfRate">Total Pf Rate</label>
+          <input
+            type="number"
+            class="form-control"
+            name="totalPfRate"
+            id="field_totalPfRate"
+            data-cy="totalPfRate"
+            formControlName="totalPfRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.employeId" for="field_employeId">Employe Id</label>
+          <input type="number" class="form-control" name="employeId" id="field_employeId" data-cy="employeId" formControlName="employeId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.reEnumerationId" for="field_reEnumerationId">Re Enumeration Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="reEnumerationId"
+            id="field_reEnumerationId"
+            data-cy="reEnumerationId"
+            formControlName="reEnumerationId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.companyId" for="field_companyId">Company Id</label>
+          <input type="number" class="form-control" name="companyId" id="field_companyId" data-cy="companyId" formControlName="companyId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.pfDetails.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

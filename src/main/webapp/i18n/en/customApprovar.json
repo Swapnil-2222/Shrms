@@ -1,0 +1,30 @@
+{
+  "shrmsApp": {
+    "customApprovar": {
+      "home": {
+        "title": "Custom Approvars",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Custom Approvar",
+        "createOrEditLabel": "Create or edit a Custom Approvar",
+        "notFound": "No Custom Approvars found"
+      },
+      "created": "A new Custom Approvar is created with identifier {{ param }}",
+      "updated": "A Custom Approvar is updated with identifier {{ param }}",
+      "deleted": "A Custom Approvar is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Custom Approvar {{ id }}?"
+      },
+      "detail": {
+        "title": "Custom Approvar"
+      },
+      "id": "ID",
+      "employeId": "Employe Id",
+      "approvalSettingId": "Approval Setting Id",
+      "squence": "Squence",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

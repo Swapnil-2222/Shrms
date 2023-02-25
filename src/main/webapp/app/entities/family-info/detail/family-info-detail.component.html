@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="familyInfo">
+      <h2 data-cy="familyInfoDetailsHeading"><span jhiTranslate="shrmsApp.familyInfo.detail.title">Family Info</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ familyInfo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.name">Name</span></dt>
+        <dd>
+          <span>{{ familyInfo.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.dateOfBirth">Date Of Birth</span></dt>
+        <dd>
+          <span>{{ familyInfo.dateOfBirth | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.relation">Relation</span></dt>
+        <dd>
+          <span>{{ familyInfo.relation }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.addressId">Address Id</span></dt>
+        <dd>
+          <span>{{ familyInfo.addressId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.isEmployed">Is Employed</span></dt>
+        <dd>
+          <span>{{ familyInfo.isEmployed }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.employedAt">Employed At</span></dt>
+        <dd>
+          <span>{{ familyInfo.employedAt }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ familyInfo.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ familyInfo.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.status">Status</span></dt>
+        <dd>
+          <span>{{ familyInfo.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ familyInfo.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.familyInfo.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ familyInfo.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/family-info', familyInfo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
